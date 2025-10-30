@@ -14,6 +14,10 @@ ytenv/
 *.env.*
 test.ipynb
 
+# ignore dataset files
+data/clean_youtube_comments.csv
+data/youtube_comments.csv
+
 # Distribution / packaging
 .Python
 build/
