@@ -13,6 +13,7 @@ emoji==2.9.0
 nltk==3.9.2
 banglanltk==0.0.4
 bnltk==0.7.8
+bangla-stemmer
 
 # machine learning
 scikit-learn==1.5.2
