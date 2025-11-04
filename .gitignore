@@ -17,6 +17,7 @@ test.ipynb
 # ignore dataset files
 data/clean_youtube_comments.csv
 data/youtube_comments.csv
+data/Sentiment.csv
 
 # Distribution / packaging
 .Python
