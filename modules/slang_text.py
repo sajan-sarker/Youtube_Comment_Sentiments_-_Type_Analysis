@@ -41,7 +41,6 @@ slang_text_dict = {
     'dm': 'direct message, a form of private messaging',
     'dnt': "don't",
     'ema': 'email address',
-    'eta': 'estimated time of arrival',
     'ez': 'easy',
     'f': 'female',
     'fam': "short for 'family', similar to 'bro'",

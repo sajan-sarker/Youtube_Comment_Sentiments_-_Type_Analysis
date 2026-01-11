@@ -2,6 +2,7 @@ import re
 import string
 import nltk
 import os
+import emoji
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from bangla_stemmer.stemmer import stemmer
@@ -11,16 +12,34 @@ from modules.bangla_stopwords import bangla_stopwords
 
 nltk.download('stopwords')
 
+def remove_emojis(text):
+    """ Remove emojis from text """
+    return emoji.replace_emoji(text, replace='')
+
+def remove_html_tags(data):
+    """ Remove html tags from text """
+    pattern = re.compile('<.*?>')
+    return pattern.sub("", data)
+
+def remove_urls(data):
+    """ Remove URLs from text """
+    pattern = re.compile(r'https?://[^\s]+|www\.[^\s]+')
+    return pattern.sub("", data)
+
 def replace_slang(text):
     """ Replace slang words in the input text with their standard forms."""
+    new_text = []
     for word in text.split():
-        if word.lower() in slang_text_dict:
-            text = text.replace(word, slang_text_dict[word])
-    return text
+        if word in slang_text_dict:
+            new_text.append(slang_text_dict[word])
+        else:
+            new_text.append(word)
+    return " ".join(text.split())
 
 def remove_punctuation(text):
     """ Remove punctuation from the input text."""
     punc = string.punctuation
+    text = text.lower()
     return text.translate(str.maketrans(' ', ' ', punc))
 
 # Combine English and Bangla stopwords
