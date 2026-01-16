@@ -19,6 +19,11 @@ data/clean_youtube_comments.csv
 data/youtube_comments.csv
 data/Sentiment.csv
 
+# ignore large models 
+models/sentiment_lstm.pth
+models/sentiment_bilstm.pth
+models/bert/model.safetensors
+
 # Distribution / packaging
 .Python
 build/
