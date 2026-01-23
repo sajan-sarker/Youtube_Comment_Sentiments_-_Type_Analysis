@@ -11,13 +11,15 @@ ytenv/
 
 # custom files
 *.env
-*.env.*
-test.ipynb
+*.env
+test.*
 
 # ignore dataset files
 data/clean_youtube_comments.csv
 data/youtube_comments.csv
 data/Sentiment.csv
+
+app/plots/*.png
 
 # ignore large models 
 models/sentiment_lstm.pth
