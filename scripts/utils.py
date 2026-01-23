@@ -10,8 +10,6 @@ from bangla_stemmer.stemmer import stemmer
 from modules.slang_text import slang_text_dict
 from modules.bangla_stopwords import bangla_stopwords
 
-nltk.download('stopwords')
-
 def remove_emojis(text):
     """ Remove emojis from text """
     return emoji.replace_emoji(text, replace='')
