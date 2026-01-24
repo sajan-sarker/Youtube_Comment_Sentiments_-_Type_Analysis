@@ -11,7 +11,7 @@ from scripts.utils import *
 def model_setup():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    with open('./models/tiny/config.json', 'r') as f:
+    with open('./models/bert/config.json', 'r') as f:
         config=json.load(f)
 
     tokenizer = AutoTokenizer.from_pretrained(config['model_name'])
@@ -24,7 +24,7 @@ def model_setup():
         dropout_rate=config['dropout_rate']
     )
 
-    states = load_file('./models/tiny/model.safetensors')
+    states = load_file('./models/bert/model.safetensors')
     model.load_state_dict(states)
     model.to(device)
 
