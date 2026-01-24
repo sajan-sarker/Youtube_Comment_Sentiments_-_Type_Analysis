@@ -4,6 +4,7 @@ import psycopg2
 from requests import Request
 import load_dotenv
 import pandas as pd
+import matplotlib
 from typing import Optional
 
 from datetime import datetime
@@ -19,6 +20,7 @@ from app.loader import model_setup
 from app.ModelPredictor import ModelPredictor
 from app.Plots import PlotResult
 
+matplotlib.use('Agg')  # Use a non-interactive backend for matplotlib
 warnings.filterwarnings("ignore")
 load_dotenv.load_dotenv()
 
