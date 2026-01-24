@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>YouTube Comment Sentiment & Type Analysis</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/history-page">History</a>
+    </nav>
+</header>
+
+<section class="card">
+
+    <div class="button-row">
+        <button onclick="showComment()">Single Comment</button>
+        <button onclick="showURL()">YouTube URL</button>
+    </div>
+
+    <!-- Single Comment -->
+    <div id="commentSection">
+        <textarea id="commentInput" placeholder="Enter a comment..."></textarea>
+        <button onclick="analyzeComment()">Analyze Comment</button>
+        <div id="commentResult" class="result"></div>
+    </div>
+
+    <!-- URL -->
+    <div id="urlSection" style="display:none;">
+
+        <input type="text" id="urlInput" placeholder="Enter YouTube video URL">
+        <button onclick="analyzeURL()">Analyze Video</button>
+
+        <!-- Loading Indicator -->
+        <div id="loadingContainer" class="loading-container" style="display:none;">
+            <div class="spinner"></div>
+            <p>Analyzing comments, please wait...</p>
+        </div>
+
+        <!-- Total Comments Banner -->
+        <div id="totalCommentsBox" class="total-comments-box" style="display:none;"></div>
+
+        <!-- Plots Dashboard -->
+        <div id="homePlots" class="plots-dashboard" style="display:none;">
+            <!-- ROW 1 -->
+            <div class="plot-title sentiment-title">Sentiment Result</div>
+            <div class="plot-title type-title">Type Result</div>
+
+            <!-- ROW 2 -->
+            <img id="home_sd">
+            <img id="home_sp">
+            <img id="home_td">
+            <img id="home_tp">
+        </div>
+
+    </div>
+
+</section>
+
+<script src="/static/js/home.js"></script>
+
+<script>
+function showComment() {
+    hideLoader();
+    document.getElementById("commentSection").style.display = "block";
+    document.getElementById("urlSection").style.display = "none";
+}
+
+function showURL() {
+    hideLoader();
+    document.getElementById("urlSection").style.display = "block";
+    document.getElementById("commentSection").style.display = "none";
+}
+
+function showLoader() {
+    document.getElementById("loadingContainer").style.display = "block";
+}
+
+function hideLoader() {
+    document.getElementById("loadingContainer").style.display = "none";
+}
+
+/* Default */
+showComment();
+</script>
+
+</body>
+</html>

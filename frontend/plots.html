@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plots</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Analysis Plots</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/history-page">History</a>
+    </nav>
+</header>
+
+<section class="card">
+    <div class="plots-dashboard">
+        <!-- ROW 1: Titles -->
+        <div class="plot-title sentiment-title">Sentiment Result</div>
+        <div class="plot-title type-title">Type Result</div>
+
+        <!-- ROW 2: Plots -->
+        <img id="sd">
+        <img id="sp">
+        <img id="td">
+        <img id="tp">
+    </div>
+</section>
+
+<!-- Zoom overlay -->
+<div class="zoom-overlay" id="zoomOverlay">
+    <img id="zoomedImage">
+</div>
+
+<a href="/history-page">⬅ Back to History</a>
+
+<script src="/static/js/plots.js"></script>
+<script>
+// ---------- CLICK TO ZOOM ----------
+const overlay = document.getElementById("zoomOverlay");
+const zoomedImg = document.getElementById("zoomedImage");
+
+document.querySelectorAll('.plots-dashboard img').forEach(img => {
+    img.addEventListener('click', () => {
+        zoomedImg.src = img.src;
+        overlay.style.display = 'flex';
+    });
+});
+
+// Close overlay on click
+overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+});
+</script>
+</body>
+</html>

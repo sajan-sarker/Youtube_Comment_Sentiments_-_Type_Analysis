@@ -1,0 +1,344 @@
+:root {
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --bg: #f4f6fb;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ---------- HEADER ---------- */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: var(--secondary);
+}
+
+/* ---------- INPUTS ---------- */
+textarea,
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+/* ---------- HOME PAGE BUTTON ROW ---------- */
+.button-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.button-row button {
+    width: 100%;
+}
+
+/* ---------- RESULTS ---------- */
+.result {
+    margin-top: 25px;
+}
+
+/* ---------- IMAGES ---------- */
+.result img,
+.plots img {
+    width: 48%;
+    margin: 10px 1%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ---------- TABLE ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+th {
+    background: var(--primary);
+    color: white;
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------- LINKS ---------- */
+a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+
+/* ---------- PLOTS GRID ---------- */
+.plots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.plots img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ---------- PLOTS DASHBOARD ---------- */
+.plots-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ---------- ROW 1: Titles ---------- */
+.plot-title {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding: 15px;
+}
+
+/* Merge first 2 columns & second 2 columns */
+.plot-title.sentiment-title {
+    grid-column: 1 / span 2;
+    border-right: 2px solid var(--border);
+}
+
+.plot-title.type-title {
+    grid-column: 3 / span 2;
+}
+
+/* ---------- ROW 2: Plots ---------- */
+.plots-dashboard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    border-top: 2px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ---------- Hover glow effect ---------- */
+.plots-dashboard img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.6);
+}
+
+/* ---------- Vertical line between 2nd and 3rd column (only row 2) ---------- */
+.plots-dashboard img:nth-of-type(n+3):nth-of-type(-n+4) {
+    border-left: 2px solid var(--border);
+}
+
+/* ---------- ZOOM OVERLAY ---------- */
+.zoom-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.zoom-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.zoom-overlay:active {
+    display: none;
+}
+
+/* ---------- TOTAL COMMENTS BANNER ---------- */
+.total-comments-box {
+    margin: 25px 0;
+    padding: 18px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- PLOTS DASHBOARD ---------- */
+.plots-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* ---------- ROW 1 TITLES ---------- */
+.plot-title {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding: 15px;
+}
+
+.plot-title.sentiment-title {
+    grid-column: 1 / span 2;
+    border-right: 2px solid var(--border);
+}
+
+.plot-title.type-title {
+    grid-column: 3 / span 2;
+}
+
+/* ---------- ROW 2 PLOTS ---------- */
+.plots-dashboard img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    border-top: 2px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Glow hover effect */
+.plots-dashboard img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.7);
+}
+
+/* Vertical separator between 2nd and 3rd column (row 2 only) */
+.plots-dashboard img:nth-of-type(3),
+.plots-dashboard img:nth-of-type(4) {
+    border-left: 2px solid var(--border);
+}
+
+
+.loading-container {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(90, 90, 255, 0.2);
+    border-top: 5px solid #5a5aff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+.loading-container p {
+    font-weight: 500;
+    color: #555;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
