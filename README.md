@@ -138,6 +138,7 @@ uvicorn main:app --reload
 | google-api-python-client 🎥  | Comment crawling                                 |
 | FastAPI, Pydantic, Uvicorn ⚡ | API backend & serving                           |
 | psycopg2-binary, python-dotenv 🗄️ | PostgreSQL and environment management      |
+| Postman 🧪                  | API testing, debugging, and validation           |
 | Qwen2.5-14B (LLM) 🧠         | LLM-based labeling with Few-Shot techniques      |
 
 ## Limitations ⚠️
